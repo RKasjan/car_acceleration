@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Kasjan Rozycki">
+
+        <title>Fuel consumption</title>
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+       <link href="css/car-acceleration.css" rel="stylesheet">
+
+      </head>
+      <body>
+        <nav class="navbar navbar-dark sticky-top ming flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Cars acceleration</a>
+
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+
+              </button>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-3 col-lg-2 d-md-block jet sidebar collapse">
+                    <div class="sidebar-sticky pt-3">
+                        <ul class="nav flex-column">
+                        
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html">
+                                    <span data-feather="home"></span>
+                                    Home page 
+                                  </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="make.html">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    Acceleration 
+                                  </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="fuel-consumption.html">
+                                    Fuel consumption 
+                                  </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="add-your-car.html">
+                                    Add your car 
+                                  </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="contact-us.html">
+                                    Contact us
+                                  </a>
+                            </li>
+                        </ul>
+            </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+                <div class="row">
+                <div class="col-sm-12">
+                    <h1>Fuel consumption</h1>
+                </div> 
+
+                <div class="form-group col-sm">
+
+                    <label for="make">Make</label>
+
+                <select class="form-control" id="make" name="make">
+                    <option></option>
+                   <option>Audi</option>
+                   <option>BMW</option>
+              </select>
+              </div>
+              <div class="form-group col-sm">
+                <label for="model">Model</label>
+              
+              <select class="form-control" id="model" name="model">
+                <option></option> 
+              </select>
+            
+            </div>
+        </div>
+        
+        
+</div>
+<div class="chart-container col-8 mb-3">
+    <canvas id="myChart"></canvas>
+    </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"> </script>
+<script>
+    $(document).ready(function () {
+
+$("#make").change(function () {
+    var el = $(this);
+    if (el.val() === "Audi") {
+        $("#model option:last-child").remove();
+        $("#model option:last-child").remove();
+        $("#model").append("<option>A3</option><option>A4</option>");
+    } else if (el.val() === "BMW") {
+        $("#model option:last-child").remove();
+        $("#model option:last-child").remove();
+        $("#model").append("<option>Series 3</option><option>Series 5</option>");
+    }
+});
+
+});
+</script>
+<script>
+    new Chart('myChart', {
+  type: 'bar',
+  data: {
+    labels: ['BMW series 5', 'Audi A6', 'BMW series 3', 'Audi A3'],
+    datasets: [{
+      label: 'Cars fuel consumption',
+      data: [18.2, 14.2, 11.7, 8.8],
+  backgroundColor: ["#ef476f", "#ffd166", "#06d6a0", "#118ab2"], 
+      
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
+
+</script>
+</body>
+      </body>
+      </html>
